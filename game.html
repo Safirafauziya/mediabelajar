@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Interaktif</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .question {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f1f9ff;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .question p {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 25px;
+      font-size: 1em;
+      background: #ffc107;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #e0a800;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+      background: #ffc107;
+      padding: 10px 20px;
+      border-radius: 25px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background: #e0a800;
+      color: #fff;
+    }
+
+    footer {
+      background: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🎮 Quiz Interaktif</div>
+    <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="teori.html">📖 Teori</a>
+        <a href="video.html">🎬 Video</a>
+        <a href="game.html" class="active">🎮 Game</a>
+    </nav>
+</header>
+
+
+  <div class="container">
+    <h2>Latihan Soal Parts of Speech</h2>
+
+    <form>
+      <div class="question">
+        <p>1. Kata <b>"dog"</b> termasuk jenis kata apa?</p>
+        <label><input type="radio" name="q1"> Noun</label>
+        <label><input type="radio" name="q1"> Verb</label>
+        <label><input type="radio" name="q1"> Adjective</label>
+      </div>
+
+      <div class="question">
+        <p>2. Kata <b>"quickly"</b> termasuk jenis kata apa?</p>
+        <label><input type="radio" name="q2"> Adverb</label>
+        <label><input type="radio" name="q2"> Noun</label>
+        <label><input type="radio" name="q2"> Verb</label>
+      </div>
+
+      <div class="question">
+        <p>3. Kata <b>"and"</b> termasuk jenis kata apa?</p>
+        <label><input type="radio" name="q3"> Conjunction</label>
+        <label><input type="radio" name="q3"> Verb</label>
+        <label><input type="radio" name="q3"> Adjective</label>
+      </div>
+
+      <button type="submit">Kirim Jawaban</button>
+    </form>
+
+    <a href="index.html" class="back-link">⬅ Kembali ke Menu</a>
+  </div>
+
+  <footer>
+    © 2025 Media Belajar SDN Dungkek 1
+  </footer>
+</body>
+</html>

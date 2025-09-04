@@ -1,0 +1,332 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f9fafc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffe259;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #00f2fe, #4facfe);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background: #ffe259;
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #f6d365;
+}
+
+/* Menu */
+.menu-container {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.menu-container h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.menu-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 18px rgba(0,0,0,0.15);
+}
+
+.menu-card h3 {
+  margin-bottom: 10px;
+}
+
+/* Quotes */
+.quotes {
+  padding: 50px 20px;
+  background: #f0f4ff;
+  text-align: center;
+}
+
+.quotes h2 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.quotes blockquote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Bagian teori */
+.content {
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 2.3rem;
+  margin-bottom: 15px;
+  color: #2a2a2a;
+}
+
+.content p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Grid untuk kartu teori */
+.teori-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.teori-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.teori-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 18px rgba(0,0,0,0.15);
+}
+
+.teori-card h3 {
+  margin-bottom: 10px;
+  color: #2a72d8;
+}
+
+.teori-card p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Grid video */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px auto;
+  max-width: 1100px;
+}
+
+.video-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.video-card h3 {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* === Style untuk Halaman Game / Quiz === */
+.quiz-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.quiz-container h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.quiz-question {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #444;
+}
+
+.quiz-options {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.quiz-options label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.quiz-options input[type="radio"] {
+  margin-right: 10px;
+}
+
+.quiz-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007BFF;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.quiz-button:hover {
+  background: #0056b3;
+}
+
+.quiz-result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
+  text-align: center;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+header nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+header nav a:hover,
+header nav a.active {
+    text-decoration: underline;
+    font-weight: bold;
+}
