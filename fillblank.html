@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fill in the Blank - English Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+      color: white;
+      padding: 15px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .game-container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .question {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f1f9ff;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .question p {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #ffc107;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #e0a800;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #fff;
+      background: #007bff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>✏️ Fill in the Blank Game</header>
+
+  <div class="game-container">
+    <h2>Isi titik-titik dengan jawaban yang benar</h2>
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. She ___ to school every day. (Present Simple)</p>
+        <label><input type="radio" name="q1" value="go"> go</label>
+        <label><input type="radio" name="q1" value="goes"> goes</label>
+        <label><input type="radio" name="q1" value="going"> going</label>
+      </div>
+
+      <div class="question">
+        <p>2. They are ___ football now. (Present Continuous)</p>
+        <label><input type="radio" name="q2" value="play"> play</label>
+        <label><input type="radio" name="q2" value="playing"> playing</label>
+        <label><input type="radio" name="q2" value="played"> played</label>
+      </div>
+
+      <div class="question">
+        <p>3. The cat is very ___ . (Adjective)</p>
+        <label><input type="radio" name="q3" value="quick"> quick</label>
+        <label><input type="radio" name="q3" value="quickly"> quickly</label>
+        <label><input type="radio" name="q3" value="quicker"> quicker</label>
+      </div>
+
+      <div class="question">
+        <p>4. Yesterday, I ___ a new book. (Past Tense)</p>
+        <label><input type="radio" name="q4" value="buy"> buy</label>
+        <label><input type="radio" name="q4" value="bought"> bought</label>
+        <label><input type="radio" name="q4" value="buys"> buys</label>
+      </div>
+
+      <div class="question">
+        <p>5. She is my friend ___ I like her. (Conjunction)</p>
+        <label><input type="radio" name="q5" value="because"> because</label>
+        <label><input type="radio" name="q5" value="but"> but</label>
+        <label><input type="radio" name="q5" value="and"> and</label>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">Kirim Jawaban</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <a href="game.html" class="back-link">⬅ Kembali ke Menu Game</a>
+  </div>
+
+  <footer style="background:#343a40; color:white; padding:10px; margin-top:30px;">
+    © 2025 Media Belajar SDN Dungkek 1
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+
+      if (document.querySelector('input[name="q1"]:checked')?.value === "goes") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "playing") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "quick") score++;
+      if (document.querySelector('input[name="q4"]:checked')?.value === "bought") score++;
+      if (document.querySelector('input[name="q5"]:checked')?.value === "because") score++;
+
+      let result = document.getElementById("result");
+      result.innerHTML = `✅ Skor kamu: ${score}/5`;
+
+      if (score === 5) {
+        result.innerHTML += "<br>🎉 Hebat! Semua jawaban benar!";
+      } else if (score >= 3) {
+        result.innerHTML += "<br>👍 Bagus! Tinggal sedikit lagi sempurna!";
+      } else {
+        result.innerHTML += "<br>😅 Belajar lagi ya, semangat!";
+      }
+    }
+  </script>
+
+</body>
+</html>

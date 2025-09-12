@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True or False - English Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: linear-gradient(90deg, #28a745, #20c997);
+      color: white;
+      padding: 15px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .game-container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .question {
+      margin: 20px 0;
+      padding: 15px;
+      background: #e8fff1;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .question p {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    label {
+      display: inline-block;
+      margin: 8px 15px;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #ffc107;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #e0a800;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #fff;
+      background: #007bff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>✅ True or False Game</header>
+
+  <div class="game-container">
+    <h2>Pilih apakah pernyataan ini benar atau salah</h2>
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. The sun rises in the east.</p>
+        <label><input type="radio" name="q1" value="true"> True</label>
+        <label><input type="radio" name="q1" value="false"> False</label>
+      </div>
+
+      <div class="question">
+        <p>2. A dog can fly in the sky.</p>
+        <label><input type="radio" name="q2" value="true"> True</label>
+        <label><input type="radio" name="q2" value="false"> False</label>
+      </div>
+
+      <div class="question">
+        <p>3. Water freezes at 0°C.</p>
+        <label><input type="radio" name="q3" value="true"> True</label>
+        <label><input type="radio" name="q3" value="false"> False</label>
+      </div>
+
+      <div class="question">
+        <p>4. The capital of Indonesia is Jakarta.</p>
+        <label><input type="radio" name="q4" value="true"> True</label>
+        <label><input type="radio" name="q4" value="false"> False</label>
+      </div>
+
+      <div class="question">
+        <p>5. Fish can live without water.</p>
+        <label><input type="radio" name="q5" value="true"> True</label>
+        <label><input type="radio" name="q5" value="false"> False</label>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">Kirim Jawaban</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <a href="game.html" class="back-link">⬅ Kembali ke Menu Game</a>
+  </div>
+
+  <footer style="background:#343a40; color:white; padding:10px; margin-top:30px;">
+    © 2025 Media Belajar SDN Dungkek 1
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+
+      if (document.querySelector('input[name="q1"]:checked')?.value === "true") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "false") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "true") score++;
+      if (document.querySelector('input[name="q4"]:checked')?.value === "true") score++;
+      if (document.querySelector('input[name="q5"]:checked')?.value === "false") score++;
+
+      let result = document.getElementById("result");
+      result.innerHTML = `✅ Skor kamu: ${score}/5`;
+
+      if (score === 5) {
+        result.innerHTML += "<br>🎉 Perfect! Semua jawaban benar!";
+      } else if (score >= 3) {
+        result.innerHTML += "<br>👍 Bagus! Kamu hampir sempurna!";
+      } else {
+        result.innerHTML += "<br>😅 Belajar lagi ya, semangat!";
+      }
+    }
+  </script>
+
+</body>
+</html>

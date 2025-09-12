@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Parts of Speech & Tenses</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .question {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f1f9ff;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .question p {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 25px;
+      font-size: 1em;
+      background: #ffc107;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #e0a800;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+      background: #ffc107;
+      padding: 10px 20px;
+      border-radius: 25px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background: #e0a800;
+      color: #fff;
+    }
+
+    .result {
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .correct { background: #d4edda; color: #155724; }
+    .wrong { background: #f8d7da; color: #721c24; }
+
+    footer {
+      background: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 0.9em;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🎮 Quiz Interaktif</div>
+    <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="teori.html">📖 Teori</a>
+        <a href="video.html">🎬 Video</a>
+        <a href="game.html">🎮 Game</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Latihan Soal Parts of Speech & Tenses</h2>
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Kata <b>"dog"</b> termasuk jenis kata apa?</p>
+        <label><input type="radio" name="q1" value="Noun"> Noun</label>
+        <label><input type="radio" name="q1" value="Verb"> Verb</label>
+        <label><input type="radio" name="q1" value="Adjective"> Adjective</label>
+      </div>
+
+      <div class="question">
+        <p>2. Kata <b>"quickly"</b> termasuk jenis kata apa?</p>
+        <label><input type="radio" name="q2" value="Adverb"> Adverb</label>
+        <label><input type="radio" name="q2" value="Noun"> Noun</label>
+        <label><input type="radio" name="q2" value="Verb"> Verb</label>
+      </div>
+
+      <div class="question">
+        <p>3. Kata <b>"and"</b> termasuk jenis kata apa?</p>
+        <label><input type="radio" name="q3" value="Conjunction"> Conjunction</label>
+        <label><input type="radio" name="q3" value="Verb"> Verb</label>
+        <label><input type="radio" name="q3" value="Adjective"> Adjective</label>
+      </div>
+
+      <div class="question">
+        <p>4. Kalimat "She <b>is playing</b> football" termasuk tense apa?</p>
+        <label><input type="radio" name="q4" value="Present Continuous"> Present Continuous</label>
+        <label><input type="radio" name="q4" value="Simple Present"> Simple Present</label>
+        <label><input type="radio" name="q4" value="Past Tense"> Past Tense</label>
+      </div>
+
+      <div class="question">
+        <p>5. Kata <b>"beautiful"</b> termasuk jenis kata apa?</p>
+        <label><input type="radio" name="q5" value="Adjective"> Adjective</label>
+        <label><input type="radio" name="q5" value="Verb"> Verb</label>
+        <label><input type="radio" name="q5" value="Noun"> Noun</label>
+      </div>
+
+      <div class="question">
+        <p>6. Kalimat "They <b>went</b> to school yesterday" termasuk tense apa?</p>
+        <label><input type="radio" name="q6" value="Past Tense"> Past Tense</label>
+        <label><input type="radio" name="q6" value="Present Tense"> Present Tense</label>
+        <label><input type="radio" name="q6" value="Future Tense"> Future Tense</label>
+      </div>
+
+      <div class="question">
+        <p>7. Kata <b>"book"</b> termasuk jenis kata apa?</p>
+        <label><input type="radio" name="q7" value="Noun"> Noun</label>
+        <label><input type="radio" name="q7" value="Verb"> Verb</label>
+        <label><input type="radio" name="q7" value="Adverb"> Adverb</label>
+      </div>
+
+      <div class="question">
+        <p>8. Kalimat "I <b>will eat</b> rice tomorrow" termasuk tense apa?</p>
+        <label><input type="radio" name="q8" value="Future Tense"> Future Tense</label>
+        <label><input type="radio" name="q8" value="Past Tense"> Past Tense</label>
+        <label><input type="radio" name="q8" value="Present Tense"> Present Tense</label>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">Kirim Jawaban</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <a href="game.html" class="back-link">⬅ Kembali ke Menu Game</a>
+  </div>
+
+  <footer>
+    © 2025 Media Belajar SDN Dungkek 1
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      let correctAnswers = {
+        q1: "Noun",
+        q2: "Adverb",
+        q3: "Conjunction",
+        q4: "Present Continuous",
+        q5: "Adjective",
+        q6: "Past Tense",
+        q7: "Noun",
+        q8: "Future Tense"
+      };
+
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+
+      for (let key in correctAnswers) {
+        let answer = document.querySelector(`input[name="${key}"]:checked`);
+        if (answer && answer.value === correctAnswers[key]) {
+          score++;
+        }
+      }
+
+      let resultDiv = document.getElementById("result");
+      resultDiv.style.display = "block";
+
+      if (score >= total/2) {
+        resultDiv.className = "result correct";
+        resultDiv.innerHTML = `🎉 Bagus! Skor kamu ${score} dari ${total} soal.`;
+      } else {
+        resultDiv.className = "result wrong";
+        resultDiv.innerHTML = `😢 Skor kamu ${score} dari ${total} soal. Tetap semangat belajar ya!`;
+      }
+    }
+  </script>
+</body>
+</html>
