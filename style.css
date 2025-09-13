@@ -47,6 +47,11 @@ body {
   color: #ffe259;
 }
 
+.nav-links a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 /* Hero Section */
 .hero {
   text-align: center;
@@ -73,6 +78,8 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 .btn:hover {
@@ -142,7 +149,7 @@ footer {
   margin-top: 30px;
 }
 
-/* Bagian teori */
+/* Halaman Teori */
 .content {
   padding: 50px 20px;
   max-width: 1000px;
@@ -162,7 +169,6 @@ footer {
   color: #555;
 }
 
-/* Grid untuk kartu teori */
 .teori-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -193,7 +199,7 @@ footer {
   color: #444;
 }
 
-/* Grid video */
+/* Halaman Video */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -202,7 +208,7 @@ footer {
   max-width: 1100px;
 }
 
-.video-card {
+.video-box {
   background: #fff;
   padding: 15px;
   border-radius: 15px;
@@ -211,18 +217,24 @@ footer {
   text-align: center;
 }
 
-.video-card:hover {
+.video-box:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
 
-.video-card h3 {
-  margin-top: 12px;
+.video-box h3 {
+  margin-bottom: 10px;
   font-size: 1rem;
   color: #333;
 }
 
-/* === Style untuk Halaman Game / Quiz === */
+.video-box iframe {
+  width: 100%;
+  height: 160px;
+  border-radius: 8px;
+}
+
+/* Halaman Game / Quiz */
 .quiz-container {
   max-width: 800px;
   margin: 50px auto;
@@ -301,32 +313,44 @@ footer {
   text-decoration: underline;
 }
 
-/* Header */
-header {
-    background: linear-gradient(to right, #00c6ff, #0072ff);
-    color: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+/* ============================= */
+/* 📱 MEDIA QUERIES UNTUK RESPONSIF */
+/* ============================= */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-header .logo {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
 
-header nav a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
     font-size: 1rem;
-    transition: 0.3s;
-}
+  }
 
-header nav a:hover,
-header nav a.active {
-    text-decoration: underline;
-    font-weight: bold;
-}
+  .menu-container h2,
+  .quotes h2,
+  .content h1 {
+    font-size: 1.5rem;
+  }
+
