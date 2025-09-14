@@ -82,3 +82,17 @@ resetBtn.addEventListener("click", loadQuestion);
 
 // Inisialisasi
 loadQuestion();
+function selectEmoji(emoji) {
+  userSentence.push(emoji);
+  const span = document.createElement("span");
+  span.textContent = emoji;
+  span.addEventListener("click", () => removeEmoji(span, emoji));
+
+  // animasi klik
+  span.style.transform = "scale(1.4)";
+  span.style.transition = "transform 0.2s";
+  setTimeout(() => { span.style.transform = "scale(1)"; }, 150);
+
+  sentenceBox.appendChild(span);
+}
+

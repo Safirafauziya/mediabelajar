@@ -6,54 +6,98 @@
   <title>Memory Match Game - English Vocabulary</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       text-align: center;
-      background: #f2f7ff;
+      background: linear-gradient(120deg, #c3ecf9, #71d0f5);
       margin: 0;
       padding: 20px;
     }
     h1 {
-      color: #333;
+      color: #0d1b2a;
+      margin-bottom: 5px;
+    }
+    p {
+      color: #1b263b;
+      margin-top: 0;
     }
     .game-board {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      max-width: 400px;
+      gap: 15px;
+      max-width: 450px;
       margin: 20px auto;
+      perspective: 1000px;
     }
     .card {
-      background: #007bff;
+      background: #1b263b;
       color: #fff;
-      border-radius: 10px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      height: 80px;
+      height: 100px;
       cursor: pointer;
-      transition: transform 0.3s, background 0.3s;
+      transition: transform 0.6s, background 0.3s, color 0.3s;
+      transform-style: preserve-3d;
+      position: relative;
     }
-    .card.flipped, .card.matched {
+    .card.flipped {
+      transform: rotateY(180deg);
       background: #fff;
-      color: #333;
+      color: #1b263b;
+    }
+    .card.matched {
+      background: #ffd166;
+      color: #1b263b;
       cursor: default;
-      transform: scale(1.05);
-      border: 2px solid #007bff;
+      transform: scale(1.1);
     }
     .scoreboard {
       margin-top: 20px;
       font-size: 18px;
-      color: #444;
+      color: #1b263b;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    .buttons button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .buttons button:hover {
+      background: #0056b3;
     }
     @media (max-width: 600px) {
       .game-board {
         grid-template-columns: repeat(3, 1fr);
-        max-width: 300px;
+        max-width: 320px;
+        gap: 10px;
       }
       .card {
-        height: 70px;
+        height: 80px;
         font-size: 16px;
+      }
+      .buttons button {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 400px) {
+      .card {
+        height: 70px;
+        font-size: 14px;
+      }
+      .buttons button {
+        padding: 6px 12px;
+        font-size: 12px;
       }
     }
   </style>
@@ -69,6 +113,11 @@
     <p id="message"></p>
   </div>
 
+  <div class="buttons">
+    <button id="reloadBtn">🔄 Reload</button>
+    <button id="backBtn">⬅️ Kembali</button>
+  </div>
+
   <script>
     const words = [
       { en: "Apple", id: "Apel" },
@@ -80,20 +129,34 @@
     ];
 
     let cards = [];
-    words.forEach(word => {
-      cards.push({ text: word.en, pair: word.id });
-      cards.push({ text: word.id, pair: word.en });
-    });
-
-    // Shuffle cards
-    cards.sort(() => 0.5 - Math.random());
-
-    const board = document.getElementById("gameBoard");
     let firstCard = null;
     let secondCard = null;
     let lockBoard = false;
     let moves = 0;
     let matchedPairs = 0;
+
+    function initGame() {
+      // Reset variables
+      firstCard = null;
+      secondCard = null;
+      lockBoard = false;
+      moves = 0;
+      matchedPairs = 0;
+      document.getElementById("moves").innerText = moves;
+      document.getElementById("message").innerText = "";
+
+      // Create and shuffle cards
+      cards = [];
+      words.forEach(word => {
+        cards.push({ text: word.en, pair: word.id });
+        cards.push({ text: word.id, pair: word.en });
+      });
+      cards.sort(() => 0.5 - Math.random());
+
+      renderBoard();
+    }
+
+    const board = document.getElementById("gameBoard");
 
     function renderBoard() {
       board.innerHTML = "";
@@ -153,7 +216,14 @@
       lockBoard = false;
     }
 
-    renderBoard();
+    // Button actions
+    document.getElementById("reloadBtn").addEventListener("click", initGame);
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.history.back();
+    });
+
+    // Initialize game on load
+    initGame();
   </script>
 </body>
 </html>

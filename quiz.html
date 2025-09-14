@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Parts of Speech & Tenses</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -21,6 +22,7 @@
       align-items: center;
       font-size: 1.3em;
       font-weight: bold;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -70,7 +72,7 @@
 
     button {
       display: block;
-      margin: 20px auto;
+      margin: 15px auto;
       padding: 10px 25px;
       font-size: 1em;
       background: #ffc107;
@@ -119,6 +121,25 @@
     .correct { background: #d4edda; color: #155724; }
     .wrong { background: #f8d7da; color: #721c24; }
 
+    .progress {
+      background: #e0e0e0;
+      border-radius: 25px;
+      height: 20px;
+      margin: 15px 0;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+      text-align: center;
+      color: #fff;
+      font-size: 0.9em;
+      line-height: 20px;
+      transition: width 0.3s;
+    }
+
     footer {
       background: #343a40;
       color: #fff;
@@ -130,81 +151,43 @@
       bottom: 0;
       width: 100%;
     }
+
+    /* Responsif HP */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+      .container {
+        margin: 15px;
+        padding: 15px;
+      }
+      button, .back-link {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">🎮 Quiz Interaktif</div>
-    <nav>
-        <a href="index.html">🏠 Home</a>
-        <a href="teori.html">📖 Teori</a>
-        <a href="video.html">🎬 Video</a>
-        <a href="game.html">🎮 Game</a>
-    </nav>
   </header>
 
   <div class="container">
     <h2>Latihan Soal Parts of Speech & Tenses</h2>
 
-    <form id="quizForm">
-      <div class="question">
-        <p>1. Kata <b>"dog"</b> termasuk jenis kata apa?</p>
-        <label><input type="radio" name="q1" value="Noun"> Noun</label>
-        <label><input type="radio" name="q1" value="Verb"> Verb</label>
-        <label><input type="radio" name="q1" value="Adjective"> Adjective</label>
-      </div>
+    <div class="progress">
+      <div id="progressBar" class="progress-bar">0%</div>
+    </div>
 
-      <div class="question">
-        <p>2. Kata <b>"quickly"</b> termasuk jenis kata apa?</p>
-        <label><input type="radio" name="q2" value="Adverb"> Adverb</label>
-        <label><input type="radio" name="q2" value="Noun"> Noun</label>
-        <label><input type="radio" name="q2" value="Verb"> Verb</label>
-      </div>
+    <form id="quizForm"></form>
 
-      <div class="question">
-        <p>3. Kata <b>"and"</b> termasuk jenis kata apa?</p>
-        <label><input type="radio" name="q3" value="Conjunction"> Conjunction</label>
-        <label><input type="radio" name="q3" value="Verb"> Verb</label>
-        <label><input type="radio" name="q3" value="Adjective"> Adjective</label>
-      </div>
-
-      <div class="question">
-        <p>4. Kalimat "She <b>is playing</b> football" termasuk tense apa?</p>
-        <label><input type="radio" name="q4" value="Present Continuous"> Present Continuous</label>
-        <label><input type="radio" name="q4" value="Simple Present"> Simple Present</label>
-        <label><input type="radio" name="q4" value="Past Tense"> Past Tense</label>
-      </div>
-
-      <div class="question">
-        <p>5. Kata <b>"beautiful"</b> termasuk jenis kata apa?</p>
-        <label><input type="radio" name="q5" value="Adjective"> Adjective</label>
-        <label><input type="radio" name="q5" value="Verb"> Verb</label>
-        <label><input type="radio" name="q5" value="Noun"> Noun</label>
-      </div>
-
-      <div class="question">
-        <p>6. Kalimat "They <b>went</b> to school yesterday" termasuk tense apa?</p>
-        <label><input type="radio" name="q6" value="Past Tense"> Past Tense</label>
-        <label><input type="radio" name="q6" value="Present Tense"> Present Tense</label>
-        <label><input type="radio" name="q6" value="Future Tense"> Future Tense</label>
-      </div>
-
-      <div class="question">
-        <p>7. Kata <b>"book"</b> termasuk jenis kata apa?</p>
-        <label><input type="radio" name="q7" value="Noun"> Noun</label>
-        <label><input type="radio" name="q7" value="Verb"> Verb</label>
-        <label><input type="radio" name="q7" value="Adverb"> Adverb</label>
-      </div>
-
-      <div class="question">
-        <p>8. Kalimat "I <b>will eat</b> rice tomorrow" termasuk tense apa?</p>
-        <label><input type="radio" name="q8" value="Future Tense"> Future Tense</label>
-        <label><input type="radio" name="q8" value="Past Tense"> Past Tense</label>
-        <label><input type="radio" name="q8" value="Present Tense"> Present Tense</label>
-      </div>
-
-      <button type="button" onclick="checkAnswers()">Kirim Jawaban</button>
-    </form>
+    <button type="button" onclick="checkAnswers()">✅ Kirim Jawaban</button>
+    <button type="button" onclick="resetQuiz()">🔄 Mulai Ulang</button>
 
     <div id="result" class="result"></div>
 
@@ -216,39 +199,96 @@
   </footer>
 
   <script>
+    // Kumpulan soal
+    const questions = [
+      { q: 'Kata <b>"dog"</b> termasuk jenis kata apa?', options: ["Noun", "Verb", "Adjective"], answer: "Noun" },
+      { q: 'Kata <b>"quickly"</b> termasuk jenis kata apa?', options: ["Adverb", "Noun", "Verb"], answer: "Adverb" },
+      { q: 'Kata <b>"and"</b> termasuk jenis kata apa?', options: ["Conjunction", "Verb", "Adjective"], answer: "Conjunction" },
+      { q: 'Kalimat "She <b>is playing</b> football" termasuk tense apa?', options: ["Present Continuous", "Simple Present", "Past Tense"], answer: "Present Continuous" },
+      { q: 'Kata <b>"beautiful"</b> termasuk jenis kata apa?', options: ["Adjective", "Verb", "Noun"], answer: "Adjective" },
+      { q: 'Kalimat "They <b>went</b> to school yesterday" termasuk tense apa?', options: ["Past Tense", "Present Tense", "Future Tense"], answer: "Past Tense" },
+      { q: 'Kata <b>"book"</b> termasuk jenis kata apa?', options: ["Noun", "Verb", "Adverb"], answer: "Noun" },
+      { q: 'Kalimat "I <b>will eat</b> rice tomorrow" termasuk tense apa?', options: ["Future Tense", "Past Tense", "Present Tense"], answer: "Future Tense" }
+    ];
+
+    let totalQuestions = questions.length;
+
+    // Fungsi untuk shuffle array
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    // Render soal ke HTML
+    function renderQuestions() {
+      let shuffled = shuffle([...questions]); // copy lalu shuffle
+      let form = document.getElementById("quizForm");
+      form.innerHTML = ""; // reset
+      shuffled.forEach((item, index) => {
+        let div = document.createElement("div");
+        div.className = "question";
+        div.innerHTML = `<p>${index + 1}. ${item.q}</p>`;
+        item.options.forEach(opt => {
+          div.innerHTML += `<label><input type="radio" name="q${index}" value="${opt}" onchange="updateProgress()"> ${opt}</label>`;
+        });
+        form.appendChild(div);
+      });
+    }
+
+    // Update progress bar
+    function updateProgress() {
+      let answered = document.querySelectorAll("input[type='radio']:checked").length;
+      let percent = Math.round((answered / totalQuestions) * 100);
+      let progressBar = document.getElementById("progressBar");
+      progressBar.style.width = percent + "%";
+      progressBar.textContent = percent + "%";
+    }
+
+    // Cek jawaban
     function checkAnswers() {
-      let correctAnswers = {
-        q1: "Noun",
-        q2: "Adverb",
-        q3: "Conjunction",
-        q4: "Present Continuous",
-        q5: "Adjective",
-        q6: "Past Tense",
-        q7: "Noun",
-        q8: "Future Tense"
-      };
-
       let score = 0;
-      let total = Object.keys(correctAnswers).length;
+      let resultDiv = document.getElementById("result");
+      let answered = document.querySelectorAll("input[type='radio']:checked").length;
 
-      for (let key in correctAnswers) {
-        let answer = document.querySelector(`input[name="${key}"]:checked`);
-        if (answer && answer.value === correctAnswers[key]) {
-          score++;
-        }
+      if (answered < totalQuestions) {
+        alert("⚠️ Jawab semua soal dulu ya!");
+        return;
       }
 
-      let resultDiv = document.getElementById("result");
-      resultDiv.style.display = "block";
+      let shuffled = document.querySelectorAll(".question");
+      shuffled.forEach((qDiv, index) => {
+        let selected = qDiv.querySelector("input[type='radio']:checked");
+        if (selected) {
+          if (selected.value === questions.find(q => q.q === qDiv.querySelector("p").innerHTML.slice(3)).answer) {
+            score++;
+          }
+        }
+      });
 
-      if (score >= total/2) {
+      resultDiv.style.display = "block";
+      if (score >= totalQuestions / 2) {
         resultDiv.className = "result correct";
-        resultDiv.innerHTML = `🎉 Bagus! Skor kamu ${score} dari ${total} soal.`;
+        resultDiv.innerHTML = `🎉 Bagus! Skor kamu ${score} dari ${totalQuestions} soal.`;
       } else {
         resultDiv.className = "result wrong";
-        resultDiv.innerHTML = `😢 Skor kamu ${score} dari ${total} soal. Tetap semangat belajar ya!`;
+        resultDiv.innerHTML = `😢 Skor kamu ${score} dari ${totalQuestions} soal. Tetap semangat belajar ya!`;
       }
     }
+
+    // Reset kuis
+    function resetQuiz() {
+      document.getElementById("result").style.display = "none";
+      document.getElementById("result").className = "result";
+      document.getElementById("progressBar").style.width = "0%";
+      document.getElementById("progressBar").textContent = "0%";
+      renderQuestions(); // render ulang dengan urutan acak baru
+    }
+
+    // Pertama kali load
+    renderQuestions();
   </script>
 </body>
 </html>

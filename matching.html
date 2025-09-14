@@ -6,8 +6,8 @@
   <title>Matching Game - Parts of Speech</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
       margin: 0;
       padding: 0;
       text-align: center;
@@ -16,18 +16,19 @@
     header {
       background: linear-gradient(90deg, #007bff, #00c6ff);
       color: white;
-      padding: 15px;
+      padding: 18px;
       font-size: 1.5em;
       font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
     .game-container {
-      max-width: 800px;
-      margin: 30px auto;
+      max-width: 900px;
+      margin: 25px auto;
       background: white;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
     }
 
     .status-bar {
@@ -35,43 +36,61 @@
       justify-content: space-between;
       margin-bottom: 15px;
       font-weight: bold;
+      flex-wrap: wrap;
+    }
+
+    .status-bar div {
+      margin: 5px 0;
+      font-size: 1.1em;
+    }
+
+    h2 {
+      margin-top: 10px;
+      color: #007bff;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
       margin-top: 20px;
     }
 
     .card {
       background: #007bff;
       color: white;
-      font-size: 1.2em;
+      font-size: 1.1em;
       font-weight: bold;
       padding: 25px;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: transform 0.3s, background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+    }
+
+    .card:hover {
+      background: #0056b3;
+      transform: scale(1.05);
     }
 
     .card.matched {
       background: #28a745;
       cursor: default;
-    }
-
-    .card:hover {
-      background: #0056b3;
+      transform: scale(1);
     }
 
     button {
-      margin-top: 20px;
+      margin: 8px;
       padding: 10px 20px;
       border: none;
       background: #ffc107;
-      border-radius: 20px;
+      border-radius: 25px;
       cursor: pointer;
       font-weight: bold;
+      transition: 0.3s;
     }
 
     button:hover {
@@ -84,13 +103,47 @@
       text-decoration: none;
       color: #fff;
       background: #007bff;
-      padding: 10px 20px;
-      border-radius: 25px;
+      padding: 12px 24px;
+      border-radius: 30px;
       font-weight: bold;
+      transition: 0.3s;
     }
 
     .back-link:hover {
       background: #0056b3;
+    }
+
+    /* 🔹 Responsif untuk HP */
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.2em;
+        padding: 12px;
+      }
+
+      .game-container {
+        margin: 15px;
+        padding: 15px;
+      }
+
+      .grid {
+        gap: 10px;
+      }
+
+      .card {
+        font-size: 1em;
+        padding: 18px;
+        min-height: 70px;
+      }
+
+      button {
+        width: 100%;
+        margin: 5px 0;
+      }
+
+      .status-bar {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -145,7 +198,7 @@
       timeLeft = 60;
       document.getElementById("timer").innerText = timeLeft;
 
-      // Timer jalan
+      // Timer
       timer = setInterval(() => {
         timeLeft--;
         document.getElementById("timer").innerText = timeLeft;

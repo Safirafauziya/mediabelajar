@@ -6,8 +6,8 @@
   <title>Fill in the Blank - English Game</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
       margin: 0;
       padding: 0;
       text-align: center;
@@ -19,11 +19,12 @@
       padding: 15px;
       font-size: 1.5em;
       font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
     }
 
     .game-container {
-      max-width: 800px;
-      margin: 30px auto;
+      max-width: 900px;
+      margin: 25px auto;
       background: white;
       padding: 20px;
       border-radius: 12px;
@@ -32,10 +33,11 @@
 
     h2 {
       margin-bottom: 20px;
+      color: #007bff;
     }
 
     .question {
-      margin: 20px 0;
+      margin: 15px 0;
       padding: 15px;
       background: #f1f9ff;
       border-radius: 10px;
@@ -49,18 +51,19 @@
 
     label {
       display: block;
-      margin: 8px 0;
+      margin: 6px 0;
       cursor: pointer;
     }
 
     button {
-      margin-top: 20px;
+      margin: 10px 8px;
       padding: 10px 20px;
       border: none;
       background: #ffc107;
-      border-radius: 20px;
+      border-radius: 25px;
       cursor: pointer;
       font-weight: bold;
+      transition: 0.3s;
     }
 
     button:hover {
@@ -73,9 +76,10 @@
       text-decoration: none;
       color: #fff;
       background: #007bff;
-      padding: 10px 20px;
-      border-radius: 25px;
+      padding: 12px 24px;
+      border-radius: 30px;
       font-weight: bold;
+      transition: 0.3s;
     }
 
     .back-link:hover {
@@ -87,6 +91,36 @@
       font-size: 1.2em;
       font-weight: bold;
     }
+
+    footer {
+      background:#343a40; 
+      color:white; 
+      padding:10px; 
+      margin-top:30px;
+      font-size: 0.9em;
+    }
+
+    /* 🔹 Responsif untuk HP */
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.2em;
+        padding: 12px;
+      }
+
+      .game-container {
+        margin: 15px;
+        padding: 15px;
+      }
+
+      .question p {
+        font-size: 1em;
+      }
+
+      button {
+        width: 100%;
+        margin: 6px 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -96,68 +130,107 @@
   <div class="game-container">
     <h2>Isi titik-titik dengan jawaban yang benar</h2>
 
-    <form id="quizForm">
-      <div class="question">
-        <p>1. She ___ to school every day. (Present Simple)</p>
-        <label><input type="radio" name="q1" value="go"> go</label>
-        <label><input type="radio" name="q1" value="goes"> goes</label>
-        <label><input type="radio" name="q1" value="going"> going</label>
-      </div>
+    <form id="quizForm"></form>
 
-      <div class="question">
-        <p>2. They are ___ football now. (Present Continuous)</p>
-        <label><input type="radio" name="q2" value="play"> play</label>
-        <label><input type="radio" name="q2" value="playing"> playing</label>
-        <label><input type="radio" name="q2" value="played"> played</label>
-      </div>
-
-      <div class="question">
-        <p>3. The cat is very ___ . (Adjective)</p>
-        <label><input type="radio" name="q3" value="quick"> quick</label>
-        <label><input type="radio" name="q3" value="quickly"> quickly</label>
-        <label><input type="radio" name="q3" value="quicker"> quicker</label>
-      </div>
-
-      <div class="question">
-        <p>4. Yesterday, I ___ a new book. (Past Tense)</p>
-        <label><input type="radio" name="q4" value="buy"> buy</label>
-        <label><input type="radio" name="q4" value="bought"> bought</label>
-        <label><input type="radio" name="q4" value="buys"> buys</label>
-      </div>
-
-      <div class="question">
-        <p>5. She is my friend ___ I like her. (Conjunction)</p>
-        <label><input type="radio" name="q5" value="because"> because</label>
-        <label><input type="radio" name="q5" value="but"> but</label>
-        <label><input type="radio" name="q5" value="and"> and</label>
-      </div>
-
+    <div>
       <button type="button" onclick="checkAnswers()">Kirim Jawaban</button>
-    </form>
+      <button type="button" onclick="resetGame()">🔄 Mulai Ulang</button>
+    </div>
 
     <div id="result" class="result"></div>
 
     <a href="game.html" class="back-link">⬅ Kembali ke Menu Game</a>
   </div>
 
-  <footer style="background:#343a40; color:white; padding:10px; margin-top:30px;">
+  <footer>
     © 2025 Media Belajar SDN Dungkek 1
   </footer>
 
   <script>
+    const questions = [
+      {
+        text: "She ___ to school every day. (Present Simple)",
+        options: ["go", "goes", "going"],
+        answer: "goes"
+      },
+      {
+        text: "They are ___ football now. (Present Continuous)",
+        options: ["play", "playing", "played"],
+        answer: "playing"
+      },
+      {
+        text: "The cat is very ___. (Adjective)",
+        options: ["quick", "quickly", "quicker"],
+        answer: "quick"
+      },
+      {
+        text: "Yesterday, I ___ a new book. (Past Tense)",
+        options: ["buy", "bought", "buys"],
+        answer: "bought"
+      },
+      {
+        text: "She is my friend ___ I like her. (Conjunction)",
+        options: ["because", "but", "and"],
+        answer: "because"
+      },
+      {
+        text: "We ___ dinner at 7 p.m. yesterday. (Past Tense)",
+        options: ["eat", "ate", "eaten"],
+        answer: "ate"
+      },
+      {
+        text: "I ___ reading when you called me. (Past Continuous)",
+        options: ["am", "was", "were"],
+        answer: "was"
+      },
+      {
+        text: "This is the ___ movie I have ever seen. (Superlative)",
+        options: ["good", "better", "best"],
+        answer: "best"
+      }
+    ];
+
+    let selectedQuestions = [];
+
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    function loadQuiz() {
+      const quizForm = document.getElementById("quizForm");
+      quizForm.innerHTML = "";
+      document.getElementById("result").innerHTML = "";
+
+      // Ambil 5 soal acak
+      selectedQuestions = shuffle([...questions]).slice(0, 5);
+
+      selectedQuestions.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "question";
+        div.innerHTML = `
+          <p>${index + 1}. ${q.text}</p>
+          ${q.options.map(opt => `
+            <label>
+              <input type="radio" name="q${index}" value="${opt}"> ${opt}
+            </label>
+          `).join("")}
+        `;
+        quizForm.appendChild(div);
+      });
+    }
+
     function checkAnswers() {
       let score = 0;
 
-      if (document.querySelector('input[name="q1"]:checked')?.value === "goes") score++;
-      if (document.querySelector('input[name="q2"]:checked')?.value === "playing") score++;
-      if (document.querySelector('input[name="q3"]:checked')?.value === "quick") score++;
-      if (document.querySelector('input[name="q4"]:checked')?.value === "bought") score++;
-      if (document.querySelector('input[name="q5"]:checked')?.value === "because") score++;
+      selectedQuestions.forEach((q, i) => {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+        if (answer === q.answer) score++;
+      });
 
       let result = document.getElementById("result");
-      result.innerHTML = `✅ Skor kamu: ${score}/5`;
+      result.innerHTML = `✅ Skor kamu: ${score}/${selectedQuestions.length}`;
 
-      if (score === 5) {
+      if (score === selectedQuestions.length) {
         result.innerHTML += "<br>🎉 Hebat! Semua jawaban benar!";
       } else if (score >= 3) {
         result.innerHTML += "<br>👍 Bagus! Tinggal sedikit lagi sempurna!";
@@ -165,6 +238,13 @@
         result.innerHTML += "<br>😅 Belajar lagi ya, semangat!";
       }
     }
+
+    function resetGame() {
+      loadQuiz();
+    }
+
+    // Jalankan saat pertama kali dibuka
+    window.onload = loadQuiz;
   </script>
 
 </body>
