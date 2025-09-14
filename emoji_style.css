@@ -1,0 +1,91 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fff5e6;
+  color: #333;
+  text-align: center;
+}
+
+.header {
+  background: #ffb347;
+  color: white;
+  padding: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.game-container {
+  padding: 30px 20px;
+}
+
+.instructions {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.emoji-pool, .sentence-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.emoji-pool span, .sentence-box span {
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.emoji-pool span:hover, .sentence-box span:hover {
+  transform: scale(1.2);
+}
+
+.btn {
+  background: #ff7f50;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff6347;
+}
+
+.reset {
+  background: #00c853;
+}
+
+.reset:hover {
+  background: #00e676;
+}
+
+.feedback {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff3d00;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .emoji-pool span, .sentence-box span {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
