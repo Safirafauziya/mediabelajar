@@ -71,3 +71,11 @@ function checkNumber(num) {
     alert("Salah. Jawaban yang benar: " + correct[num-1]);
   }
 }
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const togel = document.querySelector('.togel');
+    if (window.innerWidth >= 1024 && togel) {
+      togel.remove();
+    }
+  });
+</script>

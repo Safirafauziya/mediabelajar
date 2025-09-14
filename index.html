@@ -10,8 +10,9 @@
   <!-- Header -->
   <header class="header">
     <div class="logo">📚 Media Belajar</div>
+    <div class="menu-toggle" id="menu-toggle">☰</div> <!-- Tombol toggle -->
     <nav>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html">🏠 Home</a></li>
         <li><a href="teori.html">📖 Teori</a></li>
         <li><a href="video.html">🎬 Video</a></li>
@@ -45,6 +46,11 @@
       </a>
     </div>
   </main>
+  <!-- Konten Togel (hanya untuk mobile) -->
+<div class="togel">
+  
+</div>
+
 
   <!-- Quotes -->
   <section class="quotes">
@@ -59,5 +65,15 @@
     <p>© 2025 Media Belajar SDN Dungkek 1</p>
     <p>KKN Tematik Literasi Digital Universitas Annuqayah</p>
   </footer>
+
+  <!-- Script Toggle Menu -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show'); 
+    });
+  </script>
 </body>
 </html>

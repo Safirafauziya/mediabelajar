@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu Game</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     * {
       margin: 0;
@@ -19,29 +20,7 @@
       min-height: 100vh;
     }
 
-    header {
-      background: linear-gradient(90deg, #007bff, #00c6ff);
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.3em;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #fff;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffe082;
-    }
+   
 
     .container {
       flex: 1;
@@ -134,15 +113,16 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">🎮 Game Edukasi</div>
-    <nav>
-        <a href="index.html">🏠 Home</a>
-        <a href="teori.html">📖 Teori</a>
-        <a href="video.html">🎬 Video</a>
-        <a href="game.html" class="active">🎮 Game</a>
-    </nav>
-  </header>
+  <header class="header">
+  <div class="logo">🎮 Game Edukasi</div>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="teori.html">📖 Teori</a></li>
+    <li><a href="video.html">🎬 Video</a></li>
+    <li><a href="game.html" class="active">🎮 Game</a></li>
+  </ul>
+</header>
+
 
   <div class="container">
     <h2>Pilih Game Edukasi</h2>
@@ -166,6 +146,16 @@
         <h3>✅❌ True or False</h3>
         <p>Tentukan apakah pernyataan ini benar atau salah seputar grammar & vocabulary.</p>
         <a href="truefalse.html" class="game-btn">Mainkan</a>
+      </div>
+      <div class="game-card">
+        <h3>Word Snake</h3>
+        <p>Tentukan apakah pernyataan ini benar atau salah seputar grammar & vocabulary.</p>
+        <a href="ular.html" class="game-btn">Mainkan</a>
+      </div>
+      <div class="game-card">
+        <h3>Memory Match</h3>
+        <p>Tentukan apakah pernyataan ini benar atau salah seputar grammar & vocabulary.</p>
+        <a href="yups.html" class="game-btn">Mainkan</a>
       </div>
     </div>
 

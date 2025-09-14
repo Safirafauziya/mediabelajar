@@ -354,3 +354,64 @@ footer {
     font-size: 1.5rem;
   }
 
+/* Default nav */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tombol toggle */
+.menu-toggle {
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* disembunyikan di laptop */
+}
+
+/* Responsif: layar kecil */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff8e1;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block; /* tombol ☰ muncul di HP */
+  }
+}
+/* Sembunyikan togel di layar laptop/desktop */
+@media (min-width: 1024px) {
+  .togel {
+    display: none;
+  }
+}
+
+/* Tampilkan togel di layar mobile/tablet */
+@media (max-width: 1023px) {
+  .togel {
+    display: block;
+    text-align: center;
+    background: #ffe259;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+}
+

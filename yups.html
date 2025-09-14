@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Match Game - English Vocabulary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f2f7ff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    .card {
+      background: #007bff;
+      color: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      height: 80px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .card.flipped, .card.matched {
+      background: #fff;
+      color: #333;
+      cursor: default;
+      transform: scale(1.05);
+      border: 2px solid #007bff;
+    }
+    .scoreboard {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #444;
+    }
+    @media (max-width: 600px) {
+      .game-board {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 300px;
+      }
+      .card {
+        height: 70px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Memory Match Game</h1>
+  <p>Match the English words with their meanings!</p>
+
+  <div class="game-board" id="gameBoard"></div>
+
+  <div class="scoreboard">
+    <p>Moves: <span id="moves">0</span></p>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    const words = [
+      { en: "Apple", id: "Apel" },
+      { en: "Run", id: "Berlari" },
+      { en: "Book", id: "Buku" },
+      { en: "Sleep", id: "Tidur" },
+      { en: "Eat", id: "Makan" },
+      { en: "Water", id: "Air" }
+    ];
+
+    let cards = [];
+    words.forEach(word => {
+      cards.push({ text: word.en, pair: word.id });
+      cards.push({ text: word.id, pair: word.en });
+    });
+
+    // Shuffle cards
+    cards.sort(() => 0.5 - Math.random());
+
+    const board = document.getElementById("gameBoard");
+    let firstCard = null;
+    let secondCard = null;
+    let lockBoard = false;
+    let moves = 0;
+    let matchedPairs = 0;
+
+    function renderBoard() {
+      board.innerHTML = "";
+      cards.forEach((card, index) => {
+        const cardDiv = document.createElement("div");
+        cardDiv.classList.add("card");
+        cardDiv.dataset.text = card.text;
+        cardDiv.dataset.pair = card.pair;
+        cardDiv.dataset.index = index;
+        cardDiv.innerText = "?";
+        cardDiv.addEventListener("click", flipCard);
+        board.appendChild(cardDiv);
+      });
+    }
+
+    function flipCard() {
+      if (lockBoard) return;
+      const card = this;
+      if (card.classList.contains("flipped") || card.classList.contains("matched")) return;
+
+      card.classList.add("flipped");
+      card.innerText = card.dataset.text;
+
+      if (!firstCard) {
+        firstCard = card;
+      } else {
+        secondCard = card;
+        moves++;
+        document.getElementById("moves").innerText = moves;
+        checkMatch();
+      }
+    }
+
+    function checkMatch() {
+      if (firstCard.dataset.text === secondCard.dataset.pair) {
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
+        matchedPairs++;
+        resetBoard();
+        if (matchedPairs === words.length) {
+          document.getElementById("message").innerText = "🎉 Congratulations! You matched all pairs in " + moves + " moves.";
+        }
+      } else {
+        lockBoard = true;
+        setTimeout(() => {
+          firstCard.classList.remove("flipped");
+          secondCard.classList.remove("flipped");
+          firstCard.innerText = "?";
+          secondCard.innerText = "?";
+          resetBoard();
+        }, 1000);
+      }
+    }
+
+    function resetBoard() {
+      [firstCard, secondCard] = [null, null];
+      lockBoard = false;
+    }
+
+    renderBoard();
+  </script>
+</body>
+</html>
